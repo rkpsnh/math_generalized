@@ -1,0 +1,95 @@
+% =====================================================================
+%  Kreyszig section notes: BLANK template
+%  1. Copy and rename, e.g. 11-2-arbitrary-period.tex
+%  2. Fill in the 6 lines under "Fill in"
+%  3. Write under each heading; delete any section you don't need
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+% ---------- Fill in --------------------------------------------------
+\newcommand{\SectionNo}{11.2}
+\newcommand{\SectionTitle}{Fourier Series: Arbitrary Period}
+\newcommand{\Lesson}{01.20}
+\newcommand{\Sprint}{S1}
+\newcommand{\DateRead}{2026-11-12}
+\newcommand{\Confidence}{}       % e.g. 3/5
+
+% ---------- Shortcuts ------------------------------------------------
+\newcommand{\vect}[1]{\mathbf{#1}}                   % \vect{a}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} % \pd{f}{x}
+\newcommand{\dv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}} % \dv{y}{x}
+\newcommand{\dd}{\,\mathrm{d}}                       % \int f \dd x
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% ---------- Boxes ----------------------------------------------------
+\tcbset{boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt, fonttitle=\bfseries}
+\newtcolorbox{formulabox}[1][Key formulas]{colback=green!4, colframe=green!40!black, title=#1}
+\newtcolorbox{mistakebox}{colback=red!4, colframe=red!50!black, title=Mistakes and fixes}
+\newtcolorbox{mlbox}{colback=orange!5, colframe=orange!60!black, title=ML / robotics link}
+\newtcolorbox{keybox}{colback=blue!4, colframe=blue!50!black, title=If I remember only one thing}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Kreyszig \SectionNo}
+\rhead{Lesson \Lesson\ \textbullet\ \Sprint}
+\cfoot{\thepage}
+\setlist{itemsep=2pt, topsep=4pt}
+
+% ---------- Title --------------------------------------------------
+\title{\SectionNo\quad \SectionTitle}
+\author{Ravikant Pothukuchi}          % your name here
+\date{\DateRead}
+
+\begin{document}
+\maketitle
+
+
+% ---------------------------------------------------------------------
+\section{Introduction}
+% 1-2 sentences in your own words.
+Arbitrary period. For Fourier series with period $2\pi$ it was easy. 
+We build a series and find coefficients.
+These are called Euler formulas probably because he discovered them.
+
+\begin{formulabox}[Fourier series and Euler formulas (period $2\pi$)]
+\begin{align}
+  f(x) &= a_0 + \sum_{n=1}^{\infty} \bigl(a_n \cos nx + b_n \sin nx\bigr)\\
+  a_0 &= \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)\dd x \qquad\text{(average value of } f)\\
+  a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos nx\dd x, \qquad
+  b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin nx\dd x
+\end{align}
+\end{formulabox}
+
+
+Now we enter domain where periods can be $2L$. 
+\begin{formulabox}[Fourier series and Euler formulas (period $2L$)]
+\begin{align*}
+  f(x) &= a_0 + \sum_{n=1}^{\infty}\left(a_n \cos\frac{n\pi x}{L} + b_n \sin\frac{n\pi x}{L}\right)\\[6pt]
+  a_0 &= \frac{1}{2L}\int_{-L}^{L} f(x)\dd x \tag{0}\\
+  a_n &= \frac{1}{L}\int_{-L}^{L} f(x)\cos\frac{n\pi x}{L}\dd x && n = 1, 2, \dots \tag{a}\\
+  b_n &= \frac{1}{L}\int_{-L}^{L} f(x)\sin\frac{n\pi x}{L}\dd x && n = 1, 2, \dots \tag{b}
+\end{align*}
+\end{formulabox}
+
+% ---------------------------------------------------------------------
+\section{The Twist}
+% \begin{definition}[Name] ... \end{definition}
+The way this was derived is not important. Its a long convulated way of using $2\pi$ to get a different variable v and rebuilding the original formula. Its a side quest if you want to pursue.
+
+
+
+\end{document}
